@@ -1,11 +1,12 @@
 import React from "react";
-//import "./footer.css";
+import "./footer.css";
 const Footer = () => {
 	return (
 		<>
-			<footer className="py-3 mt-auto footer bg-light">
+			{/* <footer className="py-3 mt-auto text-center footer bg-dark"> */}
+			<footer className="py-3 text-center footer bg-dark">
 				<div className="container">
-					<span className="text-center text-dark">CRA APP</span>
+					<p className="text-white">CRA APP</p>
 				</div>
 			</footer>	
 		</>

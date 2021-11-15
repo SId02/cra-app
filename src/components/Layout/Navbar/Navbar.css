@@ -1,4 +1,6 @@
-.navbar > ul > li > NavLink:hover{
-    border-bottom: 2px solid #fff;
-}
 
+
+nav ul li .nav-link:hover{
+    border-top: 2px solid hsl(241, 100%, 50%);
+    background: hsla(209, 100%, 85%, 0.158);
+}
