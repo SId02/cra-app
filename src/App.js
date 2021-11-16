@@ -8,6 +8,7 @@ import ReactQuery from "./components/Pages/ReactQuery";
 import NotFound from "./components/Pages/NotFound"
 import Footer from "./components/Layout/Footer/Footer";
 import { Switch, Route, Redirect } from "react-router-dom";
+import Pagination from "./components/Pages/Pagination";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Route exact path="/" component={Home} />
        <Route exact path="/APICall" component={APICall} />
         <Route exact path="/Form" component={Form} />
-        <Route exact path="/ReactQuery" component={ReactQuery} /> 
+        <Route exact path="/ReactQuery" component={ ReactQuery } />
+        <Route exact path="/Pagination" component={Pagination} /> 
         <Route component={NotFound} />
         <Redirect to="/" />
       </Switch>

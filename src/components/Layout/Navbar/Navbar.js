@@ -29,9 +29,21 @@ const Navbar = () => {
               <NavLink  className="nav-link" to="/"> Filter  </NavLink>
           </li>
           <li className="nav-item">
+              <NavLink  className="nav-link" to="/Pagination"> Pagination </NavLink>
+          </li>
+          <li className="nav-item">
+              <NavLink  className="nav-link" to="/">nav2 </NavLink>
+              </li>
+              <li className="nav-item">
+              <NavLink  className="nav-link" to="/">nav2 </NavLink>
+              </li>
+              <li className="nav-item">
               <NavLink  className="nav-link" to="/">nav2 </NavLink>
           </li>
           <li className="nav-item">
+              <NavLink  className="nav-link" to="/">nav2 </NavLink>
+              </li>
+              <li className="nav-item">
               <NavLink  className="nav-link" to="/">nav2 </NavLink>
           </li>
         </ul>
