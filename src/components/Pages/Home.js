@@ -46,7 +46,7 @@ const Home = () => {
     <div className="card h-100">
 
       <div className="card-body">
-        <h5 className="card-title">Filter And Searching</h5>
+        <h5 className="card-title">Pagination</h5>
        
       </div>
     </div>
@@ -55,39 +55,20 @@ const Home = () => {
     <div className="card h-100">
 
       <div className="card-body">
-        <h5 className="card-title">React Query</h5>
+        <h5 className="card-title"></h5>
        
       </div>
     </div>
             </div>
-            <div className="col">
-    <div className="card h-100">
-
-      <div className="card-body">
-        <h5 className="card-title">React Query</h5>
        
-      </div>
-    </div>
-            </div>
-            <div className="col">
-    <div className="card h-100">
-
-      <div className="card-body">
-        <h5 className="card-title">React Query</h5>
-       
-      </div>
-    </div>
-  </div>
+      
 </div>  
         
         </div>
       </div>
 
             
-        {/* <p>
-          <NavLink to="/" className="my-2 btn btn-primary">Main call to action</NavLink>
-          <NavLink to="/" className="my-2 btn btn-secondary">Secondary action</NavLink>
-        </p> */}
+       
       </div>
     </div>
       </section>

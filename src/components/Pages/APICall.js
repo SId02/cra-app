@@ -6,7 +6,7 @@ import GithubUserCards from "../Layout/Github-User-Card/Github-User-Card";
 const APICall = () => {
   
   const [users, setUsers] = useState([]);
- const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   const getUsers = async () => {
       try {

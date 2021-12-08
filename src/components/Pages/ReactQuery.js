@@ -11,7 +11,7 @@ const ReactQuery = () => {
   const { isLoading, isError, data } = useQuery('fetchingData', () => axios("https://random.dog/woof.json"));
 
   if (isError) return <h1 className="text-center text-uppercase text-danger">Error,try again!</h1>
-  if (isLoading) return <h1 className="text-center text-uppercase">Looading ...</h1>
+  if (isLoading) return <h1 className="text-center text-uppercase">Loading ...</h1>
   return (
     <>
       <div>

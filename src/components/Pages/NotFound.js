@@ -148,17 +148,8 @@ const NotFound = () => {
         <h1>Page Not Found </h1>
         <p className="lead">The page you're looking for can't be found</p>
         <p className="lead">
-          {/* <a href="./Home.js" className="border-white bg-dark btn btn-lg btn-secondary fw-bold">Home</a> */}
-
-          <NavLink
-                        activeClassName="menu_active"
-                        exact
-                        className="border-white bg-dark btn btn-lg btn-secondary fw-bold"
-                        aria-current="page"
-                        to="/"
-                      >
-                        Home
-                      </NavLink>
+          
+          <NavLink activeClassName="menu_active" exactclassName="border-white bg-dark btn btn-lg btn-secondary fw-bold" aria-current="page" to="/" >Home</NavLink>
           
         </p>
       </main>
