@@ -1,5 +1,4 @@
-
-footer{
-    background: hsla(209, 100%, 85%, 0.158);
-    border-top: 2px solid hsl(241, 100%, 50%);
+footer {
+	background: hsla(209, 100%, 50%, 0.158);
+	border-top: 2px solid hsl(241, 100%, 50%);
 }
