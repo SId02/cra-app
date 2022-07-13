@@ -3,12 +3,15 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { AppProvider } from './context/technews_context';
 const queryClient = new QueryClient();
 ReactDOM.render(
 	<>
 		<BrowserRouter>
 			<QueryClientProvider client={queryClient}>
-				<App />
+				<AppProvider>
+					<App />
+				</AppProvider>
 			</QueryClientProvider>
 		</BrowserRouter>
 	</>,

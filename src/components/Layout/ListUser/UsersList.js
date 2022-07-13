@@ -3,7 +3,7 @@ import User from "./User";
 
 const UsersList = ({ users }) => {
 	return (
-		<div className="user-list card mx-auto mt-3 mb-3">
+		<div className="card mx-auto mt-3 mb-3 user-list">
 			{users && users.map((user) => <User key={user.login.uuid} {...user} />)}
 		</div>
 	);

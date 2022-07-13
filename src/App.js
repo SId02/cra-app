@@ -1,6 +1,7 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
+import "../node_modules/bootstrap-icons/icons/trash-fill.svg";
 import Navbar from "./components/Layout/Navbar/Navbar";
 import Home from "./components/Pages/Home";
 import APICall from "./components/Pages/APICall";
@@ -13,6 +14,7 @@ import Counter from "./components/Layout/Counters/Counter";
 import DynamicForm from "./components/Layout/DynamicForm/DynamicForm";
 import Filter from "./components/Pages/Filter";
 import RandomUser from "./components/Pages/RandomUser";
+import TechNews	from "./components/Pages/TechNews"
 function App() {
 	return (
 		<>
@@ -27,6 +29,7 @@ function App() {
 				<Route exact path="/DynamicForm" component={ DynamicForm } />
 				<Route exact path="/Filter" component={ Filter } />
 				<Route exact path="/RandomUser" component={ RandomUser } />
+				<Route exact path="/TechNews" component={ TechNews } />
 				<Route component={NotFound}/>
 				<Redirect to="/"/>
 			</Switch>

@@ -2,7 +2,8 @@ import React from "react";
 
 const User = ({ name, location, email, picture }) => {
 	return (
-		<div className="random-user	row g-0 justify-content-center">
+		<div className="row g-0 justify-content-sm-center random-user">
+			<div className="pb-3 shadow col-sm-6 round"	>
 			<div className="col-md-4 user-image">
 				<img
 					className="img-fluid rounded-start"
@@ -24,6 +25,7 @@ const User = ({ name, location, email, picture }) => {
 						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 	);

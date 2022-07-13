@@ -80,6 +80,11 @@ const Navbar = () => {
 								RandomUser
 								</NavLink>
 							</li>
+							<li className="nav-item">
+								<NavLink className="nav-link" to="/TechNews">
+								TechNews
+								</NavLink>
+							</li>
 						</ul>
 					</div>
 				</div>
