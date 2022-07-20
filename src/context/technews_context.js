@@ -1,6 +1,6 @@
 
 import React, { useContext, useReducer, useEffect } from "react";
-import reducer  from    "../reducer/technews_-reducer.js"
+import reducer  from    "../reducer/technews_reducer.js"
 
 let API = "https://hn.algolia.com/api/v1/search?";
 //url

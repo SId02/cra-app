@@ -17,11 +17,6 @@ function TechNews() {
 					</div>
 				</div>
 			</section>
-			{/* <div className="container">
-				<Search />
-				<Pagination />
-				<Posts />
-			</div> */}
 		</>
 	);
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "../../../../context/technews_context";
 
-const Stories = () => {
+const Posts = () => {
 	const { hits, isLoading, removePost } = useGlobalContext();
 	if (isLoading) {
 		return (
@@ -12,25 +12,24 @@ const Stories = () => {
 	}
 	return (
 		<>
-			<div className="row justify-content-center	shadow p-5 mb-5 rounded">
+			<div className="row p-5">
 				{hits.map((curPost) => { 
 					const { title, author, objectID, url, num_comments } = curPost;
 					return (
-						<div className="card" key={ objectID }>
+						<div className="card mb-3	shadow" key={ objectID }>
 							<div className="card-body">
 							<h2	className="card-title">{title}</h2>
 							<p>
-								By <span> {author}</span> | <span> {num_comments} </span>
-								comments
+								By <span> {author}</span> | <span> {num_comments} </span>comments
 							</p>
-							<div className="card-button">
-								<a href={url} target="_blank" rel="noreferrer"	className="btn btn-primary  ">
-									Read More
+							<div className="card-button	d-grid gap-2 d-sm-flex justify-content-sm-center ">
+								<a href={url} target="_blank" rel="noreferrer" className="btn btn-primary  ">
+									Read More ...
 								</a>
-								<a href="#" onClick={() => removePost(objectID)}	className="btn btn-primary  text-center">
+								<a href="#" onClick={() => removePost(objectID)} className="btn btn-secondary  text-center">
 									<i className="bi bi-trash-fill"></i>
 								</a>
-							</div>v
+							</div>
 							</div>
 						</div>
 					);
@@ -40,8 +39,6 @@ const Stories = () => {
 	);
 };
 
-export default Stories;
-
-
+export default Posts;
 
 

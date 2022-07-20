@@ -2,27 +2,23 @@ import React from "react";
 
 const User = ({ name, location, email, picture }) => {
 	return (
-		<div className="row g-0 justify-content-sm-center random-user">
-			<div className="pb-3 shadow col-sm-6 round"	>
-			<div className="col-md-4 user-image">
+		<div className="row m-3 justify-content-sm-center shadow">
+			<div className=" col-sm-6 round">
+			<div className="col-md-4">
 				<img
-					className="img-fluid rounded-start"
-					src={picture.medium}
+					className="rounded float-start"
+					src={picture.large}
 					alt={name.first}
 				/>
 			</div>
-			<div class="col-md-8">
-				<div class="card-body">
-					<div className="user-details">
+			<div className="col-md-8">
+				<div className="card-body">
 						<div>
-							<strong>Name:</strong> {name.first} {name.last}
-						</div>
-						<div>
-							<strong>Country:</strong> {location.country}
-						</div>
-						<div>
-							<strong>Email:</strong> {email}
-						</div>
+						<h5 className="card-title"><strong>Name:</strong> { name.first } { name.last }</h5>
+                        <ul className="list-group list-group-flush">
+                            <li className="list-group-item"><strong>Country:</strong> {location.country}</li>
+                            <li className="list-group-item"><strong>Email:</strong> {email}</li>
+                        </ul>
 					</div>
 				</div>
 			</div>

@@ -65,6 +65,27 @@ const Home = () => {
 									<div className="col">
 										<div className="card h-100">
 											<div className="card-body">
+												<h5 className="card-title">DynamicForm</h5>
+											</div>
+										</div>
+									</div>
+									<div className="col">
+										<div className="card h-100">
+											<div className="card-body">
+												<h5 className="card-title">Filter</h5>
+											</div>
+										</div>
+									</div>
+									<div className="col">
+										<div className="card h-100">
+											<div className="card-body">
+												<h5 className="card-title">ReadMore</h5>
+											</div>
+										</div>
+									</div>
+									<div className="col">
+										<div className="card h-100">
+											<div className="card-body">
 												<h5 className="card-title"></h5>
 											</div>
 										</div>

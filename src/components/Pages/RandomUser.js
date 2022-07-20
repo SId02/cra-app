@@ -33,11 +33,11 @@ const RandomUser = () => {
 	};
 
 	return (
-		<div className="container text-center justify-content-sm-center main-section">
+		<div className="container text-center justify-content-sm-center ">
 			<UsersList users={users} />
 			{errorMsg && <p className="errorMsg	text-danger">{errorMsg}</p>}
 			<div className="load-more">
-				<button onClick={loadMore} className="btn-grad btn btn-primary">
+				<button onClick={loadMore} className="btn btn-primary">
 					{isLoading ? "Loading..." : "Load More"}
 				</button>
 			</div>
