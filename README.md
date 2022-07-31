@@ -16,4 +16,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 To learn React Query , check out the [React Query documentation](https://react-query.tanstack.com/overview).
 
-
+### Images and  Icons
+- Icons are taken from the [Bootstrap Icons]()|[Feather]()
+- Iamges are taken from the []()

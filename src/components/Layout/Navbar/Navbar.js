@@ -85,6 +85,17 @@ const Navbar = () => {
 								TechNews
 								</NavLink>
 							</li>
+
+							<li className="nav-item">
+								<NavLink className="nav-link" to="/CounterReducer">
+								Counter
+								</NavLink>
+							</li>
+							<li className="nav-item">
+								<NavLink className="nav-link" to="/RandomQuotes">
+								RandomQuotes
+								</NavLink>
+							</li>
 						</ul>
 					</div>
 				</div>

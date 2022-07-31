@@ -5,11 +5,9 @@ function Counter() {
 	const [count, setCount] = useState(initialCount);
 	return (
 		<>
-	
 			<div className="container pt-5 pb-5">
 				<div className="pt-5 row justify-content-sm-center">
 					<div className="pb-3 shadow col-sm-6 round">
-					
 						<h3 className="counter text-center m-3"> Count: {count} </h3>
 						<div className="button-group text-center g-3">
 							<button
@@ -37,7 +35,6 @@ function Counter() {
 								className="reset btn btn-info"
 								onClick={() => setCount(initialCount)}
 							>
-						
 								Reset &nbsp;&nbsp;
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +78,6 @@ function Counter() {
 					</div>
 				</div>
 			</div>
-		
 		</>
 	);
 }

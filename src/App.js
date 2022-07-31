@@ -14,7 +14,9 @@ import Counter from "./components/Layout/Counters/Counter";
 import DynamicForm from "./components/Layout/DynamicForm/DynamicForm";
 import Filter from "./components/Pages/Filter";
 import RandomUser from "./components/Pages/RandomUser";
-import TechNews	from "./components/Pages/TechNews"
+import TechNews from "./components/Pages/TechNews";
+import CounterReducer from "./reducer/useReducer";
+
 function App() {
 	return (
 		<>
@@ -30,6 +32,8 @@ function App() {
 				<Route exact path="/Filter" component={ Filter } />
 				<Route exact path="/RandomUser" component={ RandomUser } />
 				<Route exact path="/TechNews" component={ TechNews } />
+				<Route exact path="/CounterReducer" component={ CounterReducer } />
+			
 				<Route component={NotFound}/>
 				<Redirect to="/"/>
 			</Switch>
