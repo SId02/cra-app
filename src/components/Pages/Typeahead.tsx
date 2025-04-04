@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
@@ -41,7 +42,7 @@ const Typeahead: React.FC = () => {
 
   const handleSelect = (country: Country) => {
     setSelectedCountry(country);
-    setSearchTerm(''); 
+    setSearchTerm('');
   };
 
   const filteredCountries = countries.filter((country) =>

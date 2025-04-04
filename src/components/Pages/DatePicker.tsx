@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 const DatePicker: React.FC = () => {
   const [disable, setDisable] = useState(true);
-  const [todate, setTodate] = useState<string>("");
-  const [fromdate, setFromdate] = useState<string>("");
-
   const [todateformat, setTodateformat] = useState<string>("");
   const [fromdateformat, setFromdateformat] = useState<string>("");
 
@@ -12,7 +10,6 @@ const DatePicker: React.FC = () => {
     const gettodatevalue = e.target.value;
     const setdateformat = gettodatevalue.split("-");
     const settodateformat = `${setdateformat[0]}${setdateformat[1]}${setdateformat[2]}`;
-    setTodate(gettodatevalue);
     setTodateformat(settodateformat);
     setDisable(false);
   };
@@ -21,7 +18,6 @@ const DatePicker: React.FC = () => {
     const getfromdatevalue = e.target.value;
     const setfromformat = getfromdatevalue.split("-");
     const setfromformatdate = `${setfromformat[0]}${setfromformat[1]}${setfromformat[2]}`;
-    setFromdate(getfromdatevalue);
     setFromdateformat(setfromformatdate);
   };
 
@@ -42,10 +38,16 @@ const DatePicker: React.FC = () => {
         </div>
         <div className="container pt-5 flex justify-center">
           <div className="w-full max-w-md">
-            <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+            <form
+              className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+              onSubmit={handleSubmit}
+            >
               <div className="flex flex-col space-y-4">
                 <div>
-                  <label htmlFor="fromdate" className="block text-gray-700 text-sm font-bold mb-2">
+                  <label
+                    htmlFor="fromdate"
+                    className="block text-gray-700 text-sm font-bold mb-2"
+                  >
                     From Date
                   </label>
                   <input
@@ -57,7 +59,10 @@ const DatePicker: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="todate" className="block text-gray-700 text-sm font-bold mb-2">
+                  <label
+                    htmlFor="todate"
+                    className="block text-gray-700 text-sm font-bold mb-2"
+                  >
                     To Date
                   </label>
                   <input
@@ -83,11 +88,10 @@ const DatePicker: React.FC = () => {
         </div>
       </section>
       <footer className="flex justify-center mt-4">
-                <Link to="/" className="text-blue-500 hover:underline">
-                    Back to Home
-                </Link>
-            </footer>
-     
+        <Link to="/" className="text-blue-500 hover:underline">
+          Back to Home
+        </Link>
+      </footer>
     </>
   );
 };

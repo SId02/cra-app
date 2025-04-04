@@ -17,7 +17,7 @@ const ProductListPaginations: React.FC = () => {
         );
         const data = await response.json();
         setProducts(data);
-        setTotalPages(10); // Adjust this based on your total data count
+        setTotalPages(10); 
       } catch (error) {
         console.error('Error fetching products:', error);
       } finally {

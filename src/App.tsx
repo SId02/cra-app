@@ -23,7 +23,8 @@ import PasswordStrengthChecker from "./components/Pages/PasswordStrengthChecker.
 import ProductListPaginations from "./components/Pages/ProductListPaginations.tsx";
 import ProductListSearchSortFilter from "./components/Pages/ProductListSearchSortFilter.tsx";
 import RandomColorGenerator from "./components/Pages/RandomColorGenerator.tsx";
-import RandomJokes from "./components/Pages/RandomJokes.tsx"
+import RandomJokes from "./components/Pages/RandomJokes.tsx";
+import RandomUser from "./components/Pages/RandomUser";
 import StopWatch from "./components/Pages/StopWatch.tsx";
 import TestimonialSlider from "./components/Layout/TestimonialSlider/TestimonialSlider.tsx";
 import TogglePasswordVisibility from "./components/Pages/TogglePasswordVisibility";
@@ -69,6 +70,7 @@ function App() {
         <Route path="/RandomColorGenerator" element={<RandomColorGenerator />} />
         <Route path="/ProductListSearchSortFilter" element={<ProductListSearchSortFilter />} />
         <Route path="/RandomJokes" element={<RandomJokes />} />
+        <Route path="/RandomUser" element={<RandomUser />} />
         <Route path="*" element={<NotFound />}/>{/*<Route path="*" element={<NotFound />}/>*/}
         </Routes>
 			<Footer />

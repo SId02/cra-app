@@ -4,7 +4,6 @@ import axios from 'axios';
  
 import { Link } from 'react-router-dom';
    
-
 const RandomJokes: React.FC = () => {
   const [joke, setJoke] = useState<string>('Loading a hilarious joke...');
   const [isLoading, setIsLoading] = useState<boolean>(false);

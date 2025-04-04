@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
+
 interface City {
   name: string;
   state: string;
 }
 
 const DataInTable: React.FC = () => {
-  const [table, setTable] = useState<JSX.Element | null>(null);
+  const [isTableVisible, setIsTableVisible] = useState(false);
 
   const cityListJSON = {
     cities: [
@@ -19,9 +20,14 @@ const DataInTable: React.FC = () => {
     ] as City[],
   };
 
-  const buildCitiesList = () => {
+  const handleDisplayCities = () => {
+    setIsTableVisible(true);
+  };
+
+  const renderCitiesTable = () => {
     const cities = cityListJSON.cities;
-    const myTable = (
+
+    return (
       <table className="min-w-full table-auto border-collapse border border-gray-200">
         <thead>
           <tr className="bg-gray-100 text-gray-700">
@@ -41,32 +47,33 @@ const DataInTable: React.FC = () => {
         </tbody>
       </table>
     );
-    setTable(myTable);
   };
 
   return (
     <>
-    <section className="py-6">
-      <div className="container mx-auto text-center pb-5">
-        <h1 className="text-2xl font-bold">Populate Data in Table</h1>
-      </div>
-      <div className="container mx-auto pt-5">
-        <main>
-          <button
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            onClick={buildCitiesList}
-          >
-            Display Capital Cities
-          </button>
-          <div className="p-5">{table}</div>
-        </main>
-      </div>
-    </section>
-    <footer className="flex justify-center mt-4">
-    <Link to="/" className="text-blue-500 hover:underline">
-        Back to Home
-    </Link>
-</footer>
+      <section className="py-6">
+        <div className="container mx-auto text-center pb-5">
+          <h1 className="text-2xl font-bold">Populate Data in Table</h1>
+        </div>
+        <div className="container mx-auto pt-5">
+          <main>
+            <button
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              onClick={handleDisplayCities}
+            >
+              Display Capital Cities
+            </button>
+            <div className="p-5">
+              {isTableVisible && renderCitiesTable()}
+            </div>
+          </main>
+        </div>
+      </section>
+      <footer className="flex justify-center mt-4">
+        <Link to="/" className="text-blue-500 hover:underline">
+          Back to Home
+        </Link>
+      </footer>
     </>
   );
 };
