@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
-
 import { Link } from 'react-router-dom';
+
 interface Product {
   id: number;
   title: string;
@@ -35,8 +35,12 @@ const ProductListSearchSortFilter: React.FC = () => {
         }
         const data = await response.json();
         setProducts(data.products);
-      } catch (e: any) {
-        setError(e.message);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          setError(error.message);
+        } else {
+          setError('An unknown error occurred');
+        }
       } finally {
         setLoading(false);
       }
@@ -100,71 +104,73 @@ const ProductListSearchSortFilter: React.FC = () => {
 
   return (
     <>
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Product List</h1>
-      <div className="flex flex-col md:flex-row gap-4 mb-4">
-        <div className="flex-1">
-          <label className="block text-sm font-medium text-gray-700">Search:</label>
-          <input
-            type="text"
-            placeholder="Search products"
-            value={searchTerm}
-            onChange={handleSearchChange}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-          />
-        </div>
-        <div className="md:w-1/4">
-          <label className="block text-sm font-medium text-gray-700">Sort by:</label>
-          <select
-            value={sortOption}
-            onChange={handleSortChange}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-          >
-            <option value="id">ID</option>
-            <option value="price">Price</option>
-            <option value="rating">Rating</option>
-          </select>
-        </div>
-        <div className="md:w-1/4">
-          <label className="block text-sm font-medium text-gray-700">Filter by Category:</label>
-          <select
-            value={filterCategory}
-            onChange={handleCategoryChange}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-          >
-            <option value="">All Categories</option>
-            {[...new Set(products.map((product) => product.category))].map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>   
-        </div>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {sortedProducts.map((product) => (
-          <div key={product.id} className="border rounded-md shadow-md">
-            <div className="aspect-w-4 aspect-h-3">
-              <img src={product.thumbnail} alt={product.title} className="object-cover w-full h-full rounded-t-md" />
-            </div>
-            <div className="p-4">
-              <h2 className="text-lg font-semibold">{product.title}</h2>
-              <p className="text-sm text-gray-600">{product.brand}</p>
-              <p className="mt-2 text-sm">{product.description}</p>
-            </div>
+      <div className="container mx-auto p-4">
+        <h1 className="text-2xl font-bold mb-4">Product List</h1>
+        <div className="flex flex-col md:flex-row gap-4 mb-4">
+          <div className="flex-1">
+            <label className="block text-sm font-medium text-gray-700">Search:</label>
+            <input
+              type="text"
+              placeholder="Search products"
+              value={searchTerm}
+              onChange={handleSearchChange}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            />
           </div>
-        ))}
+          <div className="md:w-1/4">
+            <label className="block text-sm font-medium text-gray-700">Sort by:</label>
+            <select
+              value={sortOption}
+              onChange={handleSortChange}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            >
+              <option value="id">ID</option>
+              <option value="price">Price</option>
+              <option value="rating">Rating</option>
+            </select>
+          </div>
+          <div className="md:w-1/4">
+            <label className="block text-sm font-medium text-gray-700">Filter by Category:</label>
+            <select
+              value={filterCategory}
+              onChange={handleCategoryChange}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            >
+              <option value="">All Categories</option>
+              {[...new Set(products.map((product) => product.category))].map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>   
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {sortedProducts.map((product) => (
+            <div key={product.id} className="border rounded-md shadow-md">
+              <div className="aspect-w-4 aspect-h-3">
+                <img src={product.thumbnail} alt={product.title} className="object-cover w-full h-full rounded-t-md" />
+              </div>
+              <div className="p-4">
+                <h2 className="text-lg font-semibold">{product.title}</h2>
+                <p className="text-sm text-gray-600">{product.brand}</p>
+                <p className="mt-2 text-sm">{product.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-    <footer className="flex justify-center mt-4">
-      <Link to="/" className="text-blue-500 hover:underline">
+      <footer className="flex justify-center mt-4">
+        <Link to="/" className="text-blue-500 hover:underline">
           Back to Home
-      </Link>
-  </footer>
+        </Link>
+      </footer>
     </>
   );
 };
+
 export default ProductListSearchSortFilter;
+
 
 
 

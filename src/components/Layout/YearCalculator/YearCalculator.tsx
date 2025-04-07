@@ -12,7 +12,7 @@ const YearCalculator: React.FC = () => {
 
   const calculateYear = () => {
     let d2 = new Date().getDate();
-    let m2 = new Date().getMonth() + 1; // Month is zero-indexed
+    let m2 = new Date().getMonth() + 1; 
     let y2 = new Date().getFullYear();
   
     const monthDays = [31,isLeapYear(year) ? 29 : 28,31,30,31,30,31,31,30,31,30, 31];

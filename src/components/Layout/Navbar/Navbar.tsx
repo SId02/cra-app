@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
         { path: '/', label: 'Home' },
         { path: '/about', label: 'About' },
     ];
-
+  
     return (
         <nav className="bg-white border-b border-gray-200 dark:bg-gray-900" aria-label="Main Navigation">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -39,12 +39,10 @@ const Navbar: React.FC = () => {
                             <li key={index}>
                                 <NavLink
                                     to={link.path}
-                                    className={({ isActive, isPending }) =>
-                                        `block py-2 px-3 rounded-md relative text-gray-900 dark:text-white ${isActive ? 'text-blue-700 bg-gray-100' : ''}`
-                                    }
+                                    className="block py-2 px-3 rounded-md relative text-gray-900 dark:text-white"
                                 >
                                     {link.label}
-                                    <span className={`absolute bottom-0 left-0 w-full h-[2px] transition-all duration-300 ${({ isActive, isPending }) => isActive ? 'bg-blue-500' : isPending ? 'bg-orange-500' : 'bg-transparent'}`}></span>
+                                    <span className="absolute bottom-0 left-0 w-full h-[2px] transition-all duration-300 bg-transparent"></span>
                                 </NavLink>
                             </li>
                         ))}
@@ -54,7 +52,4 @@ const Navbar: React.FC = () => {
         </nav>
     );
 };
-
 export default Navbar;
-
-

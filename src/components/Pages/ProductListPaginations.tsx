@@ -1,8 +1,14 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+interface Product {
+  id: number;
+  title: string;
+  body: string;
+}
+
 const ProductListPaginations: React.FC = () => {
-  const [products, setProducts] = useState<any[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
@@ -15,9 +21,11 @@ const ProductListPaginations: React.FC = () => {
         const response = await fetch(
           `https://jsonplaceholder.typicode.com/posts?_limit=${productsPerPage}&_page=${currentPage}`
         );
-        const data = await response.json();
+        const data = await response.json() as Product[];
         setProducts(data);
-        setTotalPages(10); 
+        const totalProducts = 100;
+        const totalPages = Math.ceil(totalProducts / productsPerPage);
+        setTotalPages(totalPages);
       } catch (error) {
         console.error('Error fetching products:', error);
       } finally {
@@ -63,23 +71,24 @@ const ProductListPaginations: React.FC = () => {
 
   return (
     <>
-    <div className="container mx-auto p-4  ">
-      <h1 className="text-2xl font-bold mb-4">Product List</h1>
-      <div className="grid grid-cols-3 gap-4">
-        {products.map((product) => (
-          <div className="border rounded-lg p-4" key={product.id}>
-            <h2 className="text-lg font-semibold">{product.title}</h2>
+      <div className="container mx-auto p-4  ">
+        <h1 className="text-2xl font-bold mb-4">Product List</h1>
+        <div className="grid grid-cols-3 gap-4">
+          {products.map((product) => (
+            <div className="border rounded-lg p-4" key={product.id}>
+              <h2 className="text-lg font-semibold">{product.title}</h2>
+              
             <p>{product.body}</p>
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
+        {renderPaginationButtons()}
       </div>
-      {renderPaginationButtons()}
-    </div>
-    <footer className="flex justify-center mt-4">
-      <Link to="/" className="text-blue-500 hover:underline">
+      <footer className="flex justify-center mt-4">
+        <Link to="/" className="text-blue-500 hover:underline">
           Back to Home
-      </Link>
-  </footer>
+        </Link>
+      </footer>
     </>
   );  
 };

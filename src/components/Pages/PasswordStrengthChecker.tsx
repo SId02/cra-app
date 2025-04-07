@@ -4,7 +4,6 @@ type PasswordStrength = "Very Weak" | "Weak" | "Medium" | "Strong" | "Very Stron
 
 const PasswordStrengthChecker: React.FC = () => {
   const [password, setPassword] = useState<string>("");
-  const [passwordStrength, setPasswordStrength] = useState<PasswordStrength>("Very Weak");
   const [message, setMessage] = useState<string>("");
   const [messageColor, setMessageColor] = useState<string>("text-red-800");
   const [messageBgColor, setMessageBgColor] = useState<string>("bg-red-200");
@@ -19,51 +18,50 @@ const PasswordStrengthChecker: React.FC = () => {
   };
 
   useEffect(() => {
-    let newStrength: PasswordStrength = "Very Weak";
     let newWidth = "0%";
     let barColor = "bg-red-500";
     let textColor = "text-red-800";
     let bgColor = "bg-red-200";
+    let newMessage: PasswordStrength = "Very Weak";
 
     if (password.length === 0) {
-      newStrength = "Very Weak";
+      newMessage = "Very Weak";
       newWidth = "0%";
       setShowMessage(false); 
     } else if (password.length <= 4) {
-      newStrength = "Very Weak";
+      newMessage = "Very Weak";
       newWidth = `${(password.length / 16) * 100}%`;
     } else if (password.length <= 6) {
-      newStrength = "Weak";
+      newMessage = "Weak";
       newWidth = `${(password.length / 16) * 100}%`;
       barColor = "bg-orange-500";
       textColor = "text-orange-800";
       bgColor = "bg-orange-200";
     } else if (password.length <= 8) {
-      newStrength = "Medium";
+      newMessage = "Medium";
       newWidth = `${(password.length / 16) * 100}%`;
       barColor = "bg-yellow-500";
       textColor = "text-yellow-800";
       bgColor = "bg-yellow-200";
     } else if (password.length <= 12) {
-      newStrength = "Strong";
+      newMessage = "Strong";
       newWidth = `${(password.length / 16) * 100}%`;
       barColor = "bg-blue-500";
       textColor = "text-blue-800";
       bgColor = "bg-blue-200";
     } else {
-      newStrength = "Very Strong";
+      newMessage = "Very Strong";
       newWidth = "100%"; 
       barColor = "bg-green-500";
       textColor = "text-green-800";
       bgColor = "bg-green-200";
     }
 
-    setPasswordStrength(newStrength);
     setStrengthBarWidth(newWidth);
     setStrengthBarColor(barColor);
     setMessageColor(textColor);
     setMessageBgColor(bgColor);
-    setMessage(newStrength);
+    setMessage(newMessage);
   }, [password]);
 
   return (
@@ -100,7 +98,7 @@ const PasswordStrengthChecker: React.FC = () => {
     <footer className="flex justify-center mt-4">
       <Link to="/" className="text-blue-500 hover:underline">
           Back to Home
-      </Link>
+          </Link>
   </footer>
     </>
   );

@@ -20,25 +20,27 @@ interface ApiResponse {
   results: User[];
 }
 
+const USERS_TO_SHOW = 10;
+
 const RandomUsers: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [usersToShow, setUsersToShow] = useState(10);
+  const [initialLoad, setInitialLoad] = useState(true); // Track initial load
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchInitialUsers = async () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`https://randomuser.me/api/?page=${page}&results=${usersToShow}`);
+        const response = await fetch(`https://randomuser.me/api/?page=${1}&results=${USERS_TO_SHOW}`);
         if (!response.ok) {
-          throw new Error('Failed to fetch users');
+          throw new Error('Failed to fetch initial users');
         }
         const data: ApiResponse = await response.json();
         setUsers(data.results);
-        setPage(page + 1);
+        setPage(2);
       } catch (err) {
         if (err instanceof Error) {
           setError(err.message);
@@ -47,16 +49,19 @@ const RandomUsers: React.FC = () => {
         }
       } finally {
         setLoading(false);
+        setInitialLoad(false);
       }
     };
 
-    fetchUsers();
-  }, []);
+    if (initialLoad) {
+      fetchInitialUsers();
+    }
+  }, [initialLoad]); 
 
   const handleLoadMore = () => {
     setLoading(true);
     setError(null);
-    fetch(`https://randomuser.me/api/?page=${page}&results=5`)
+    fetch(`https://randomuser.me/api/?page=${page}&results=${USERS_TO_SHOW}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch more users');
@@ -84,7 +89,8 @@ const RandomUsers: React.FC = () => {
       <div className="container mx-auto p-4">
         <h1 className="text-2xl font-bold mb-4">Random Users</h1>
         {error && <div className="text-red-500 mb-4">{error}</div>}
-        {loading && <div className="text-blue-500 mb-4">Loading...</div>}
+        {loading && initialLoad && <div className="text-blue-500 mb-4">Loading initial users...</div>}
+        {loading && !initialLoad && <div className="text-blue-500 mb-4">Loading more users...</div>}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {users.map((user, index) => (
             <div key={index} className="border p-4 rounded shadow">

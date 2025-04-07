@@ -4,7 +4,6 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 
 interface Country {
-  cca3: string;
   name: {
     common: string;
   };
@@ -25,7 +24,14 @@ const Typeahead: React.FC = () => {
     const fetchCountries = async () => {
       try {
         const response = await axios.get<Country[]>("https://restcountries.com/v3.1/all");
-        setCountries(response.data);
+        const transformedCountries = response.data.map(country => ({
+          name: country.name,
+          flags: country.flags,
+          population: country.population,
+          region: country.region,
+          capital: country.capital,
+        }));
+        setCountries(transformedCountries);
       } catch (error) {
         console.error("Error fetching countries:", error);
       }
@@ -88,11 +94,9 @@ const Typeahead: React.FC = () => {
             <ul className="mt-2 w-full md:w-2/3 lg:w-1/2 border rounded shadow-md">
               {filteredCountries.map((country) => (
                 <li
-                  key={country.cca3}
+                  key={country.name.common}
                   onClick={() => handleSelect(country)}
-                  className={`p-2 cursor-pointer hover:bg-gray-100 ${
-                    selectedCountry && selectedCountry.cca3 === country.cca3 ? "bg-blue-200" : ""
-                  }`}
+                  className={`p-2 cursor-pointer hover:bg-gray-100`}
                 >
                   {country.name.common}
                 </li>
