@@ -1,81 +1,72 @@
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Layout/Navbar/Navbar.tsx";
-import Footer from "./components/Layout/Footer/Footer.tsx";
-import Home from "./components/Pages/Home.tsx";
-import About from "./components/Pages/About.tsx";
-import AgeValidation from "./components/Pages/AgeValidation.tsx";
-import BmiCalculator from "./components/Pages/BmiCalculator.tsx";
-import CountryDetails from "./components/Layout/CountryDetails/CountryDetails.tsx";
-import Counter from "./components/Pages/Counter.tsx";
-import DigitalClock from "./components/Pages/DigitalClock.tsx";
-import DarkLightModeToggle from "./components/Pages/DarkLightModeToggle.tsx";
-import DataFetchUsingUseReducer from "./components/Pages/DataFetchUsingUseReducer.tsx";
-import DatePicker from "./components/Pages/DatePicker.tsx";
-import DataInTable from "./components/Layout/DataInTable/DataInTable.tsx";
-import FormValidation from "./components/Pages/FormValidation.tsx";
-import GithubUserProfileFinder from "./components/Pages/GithubUserProfileFinder.tsx";
-import LeapYearChecker from "./components/Pages/LeapYearChecker.tsx";
-import LoginPageWithDefaultValue from "./components/Pages/LoginPageWithDefaultValue.tsx";
-import LoginPageWithAPI from "./components/Pages/LoginPageWithAPI.tsx";
-import NotFound from "./components/Pages/NotFound.tsx";
-import PasswordGenerator from "./components/Pages/PasswordGenerator.tsx";
-import PasswordStrengthChecker from "./components/Pages/PasswordStrengthChecker.tsx";
-import ProductListPaginations from "./components/Pages/ProductListPaginations.tsx";
-import ProductListSearchSortFilter from "./components/Pages/ProductListSearchSortFilter.tsx";
-import RandomColorGenerator from "./components/Pages/RandomColorGenerator.tsx";
-import RandomJokes from "./components/Pages/RandomJokes.tsx";
-import RandomUser from "./components/Pages/RandomUser";
-import StopWatch from "./components/Pages/StopWatch.tsx";
-import TestimonialSlider from "./components/Layout/TestimonialSlider/TestimonialSlider.tsx";
-import TogglePasswordVisibility from "./components/Pages/TogglePasswordVisibility";
-import Typeahead from "./components/Pages/Typeahead.tsx";
-import TrafficSignal from "./components/Layout/TrafficSignal/TrafficSignal.tsx";
-import TipCalculator from "./components/Layout/TipCalculator/TipCalculator.tsx";
-import WordCounter from "./components/Pages/WordCounter.tsx";
-import YearCalculator from "./components/Layout/YearCalculator/YearCalculator.tsx";
-
-function App() {
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router';
+import Navbar  from './components/Navbar/Navbar';
+import Footer  from './components/Footer/Footer';
+import Home from './pages/Home';
+import About  from './pages/About';
+import Contact  from './pages/Contact';
+import GridList from './pages/GridList';
+import WeatherChecker from './pages/WeatherChecker';
+import WordCounter from './pages/WordCounter';
+import LoginDemo from './pages/LoginDemo';
+import LoginDemoWithApi from './pages/LoginDemoWithApi';
+import ColorGenerator from './pages/ColorGenerator';
+import CRUDStudentComponent from './pages/CRUDStudentComponent';
+import CurrencyConverter from './pages/CurrencyConverter';
+import DigitalClockStopWatch from './pages/DigitalClockStopWatch';
+import DragDrop from './pages/DragDrop';
+import DynamicForm from './pages/DynamicForm';
+import GithubUserProfileFinder from './pages/GithubUserProfileFinder';
+import InfiniteScroll from './pages/InfiniteScroll';
+import PokemonDash from './pages/PokemonDash';
+import PostsManager from './pages/PostsManager';
+import RandomUsers from './pages/RandomUsers';
+import UtilitiesDashboard from './pages/UtilitiesDashboard';
+import ProductListSearchSortFilter from "./pages/ProductListSearchSortFilter";
+const App: React.FC = () => {
+  // Initialize user theme preference from localStorage on mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
 
   return (
-    <>
-      <Navbar />
-		  <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/TrafficSignal" element={<TrafficSignal />} />
-        <Route path="/TipCalculator" element={<TipCalculator />} />
-        <Route path="/WordCounter" element={<WordCounter />} />
-        <Route path="/TogglePasswordVisibility" element={<TogglePasswordVisibility />} />
-        <Route path="/Typeahead" element={<Typeahead />} />
-        <Route path="/LoginPageWithDefaultValue" element={<LoginPageWithDefaultValue />} />
-        <Route path="/LoginPageWithAPI" element={<LoginPageWithAPI />} />
-        <Route path="/YearCalculator" element={<YearCalculator />} />
-        <Route path="/AgeValidation" element={<AgeValidation />} />
-        <Route path="/BmiCalculator" element={ <BmiCalculator /> } />
-        <Route path="/DarkLightModeToggle" element={<DarkLightModeToggle />} />
-        <Route path="/DataFetchUsingUseReducer" element={<DataFetchUsingUseReducer />} />
-        <Route path="/DatePicker" element={<DatePicker />} />
-        <Route path="/FormValidation" element={<FormValidation />} />
-        <Route path="/LeapYearChecker" element={<LeapYearChecker />} />
-				<Route path="/Counter" element={ <Counter /> } />
-			  <Route path="/GithubUserProfileFinder" element={ <GithubUserProfileFinder /> } />
-			  <Route path="/PasswordGenerator" element={ <PasswordGenerator /> } />
-			  <Route path="/DigitalClock" element={ <DigitalClock /> } />
-			  <Route path="/ProductListPaginations" element={ <ProductListPaginations /> } />
-        <Route path="/CountryDetails" element={<CountryDetails />} />
-        <Route path="/PasswordStrengthChecker" element={<PasswordStrengthChecker />} />
-        <Route path="/StopWatch" element={<StopWatch />} />
-        <Route path="/TestimonialSlider" element={<TestimonialSlider />} />
-        <Route path="/DataInTable" element={<DataInTable />} />
-        <Route path="/RandomColorGenerator" element={<RandomColorGenerator />} />
-        <Route path="/ProductListSearchSortFilter" element={<ProductListSearchSortFilter />} />
-        <Route path="/RandomJokes" element={<RandomJokes />} />
-        <Route path="/RandomUser" element={<RandomUser />} />
-        <Route path="*" element={<NotFound />}/>{/*<Route path="*" element={<NotFound />}/>*/}
-        </Routes>
-			<Footer />
-    </>
-  )
-}
+    <BrowserRouter>
+      <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+        <Navbar />
+        <main className="grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/ColorGenerator" element={<ColorGenerator />} />
+            <Route path="/GridList" element={<GridList />} />
+            <Route path="/weatherchecker" element={<WeatherChecker />} />
+            <Route path="/WordCounter" element={<WordCounter />} />
+            <Route path="/LoginDemo" element={<LoginDemo />} />
+            <Route path="/LoginDemoWithApi" element={<LoginDemoWithApi />} />
+            <Route path="/CRUDStudentComponent" element={<CRUDStudentComponent />} />
+            <Route path="/DigitalClockStopWatch" element={<DigitalClockStopWatch />} />
+            <Route path="/CurrencyConverter" element={<CurrencyConverter />} />
+            <Route path="/DragDrop" element={<DragDrop />} />
+            <Route path="/DynamicForm" element={<DynamicForm />} />
+            <Route path="/GithubUserProfileFinder" element={<GithubUserProfileFinder />} />
+            <Route path="/InfiniteScroll" element={<InfiniteScroll />} />
+            <Route path="/PokemonDash" element={<PokemonDash />} />
+            <Route path="/PostsManager" element={<PostsManager />} />
+            <Route path="/RandomUsers" element={<RandomUsers />} />
+            <Route path="/UtilitiesDashboard" element={<UtilitiesDashboard />} />
+            <Route path="/ProductListSearchSortFilter" element={<ProductListSearchSortFilter />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  );
+};
 
 export default App;
