@@ -1,7 +1,7 @@
 # React + TypeScript + Vite
 
 
-#### [Live](https://cra-app.netlify.app/) click for live demo
+#### [Live](https://cra-app-ten.vercel.app/) click for live demo
 
 
 ### Using this packages
@@ -45,3 +45,5 @@ If you are developing a production application, we recommend enabling type-aware
 ```
 
 See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+
+#### OLD Version  [Live](https://cra-app.netlify.app/) click for live demo 
