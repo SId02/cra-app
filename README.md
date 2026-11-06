@@ -1,7 +1,7 @@
 # React + TypeScript + Vite
 
-
 #### [Live](https://cra-app-ten.vercel.app/) click for live demo
+
 
 
 ### Using this packages
@@ -13,6 +13,10 @@
   -  "react-redux": "^9.3.1",
   -  "react-router": "^8.5.1",
   -  "tailwindcss": "^4.3.3"
+
+##### Font-Awesome CDN is Use 
+
+[Font-Awesome](<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">)
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
@@ -46,4 +50,4 @@ If you are developing a production application, we recommend enabling type-aware
 
 See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
 
-#### OLD Version  [Live](https://cra-app.netlify.app/) click for live demo 
+#### OLD Version  [Live](https://cra-app.netlify.app/) click for live demo  
