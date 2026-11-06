@@ -91,7 +91,7 @@ interface Lap {
             className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all cursor-pointer ${
               activeTab === 'clock'
                 ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white'
+                : 'text-slate-600 hover:text-slate-900 dark:text-white'
             }`}
           >
             <i className="fa-solid fa-clock mr-2"></i> Digital Clock
@@ -101,7 +101,7 @@ interface Lap {
             className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all cursor-pointer ${
               activeTab === 'stopwatch'
                 ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white'
+                : 'text-slate-600 hover:text-slate-900 dark:text-white'
             }`}
           >
             <i className="fa-solid fa-stopwatch mr-2"></i> Stopwatch

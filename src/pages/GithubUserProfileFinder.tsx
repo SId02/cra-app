@@ -99,7 +99,7 @@ export const GithubUserProfileFinder: React.FC = () => {
           {/* Search Box Card */}
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl">
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-              <div className="relative flex-grow">
+              <div className="relative grow">
                 <span className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
                   <i className="fa-brands fa-github"></i>
                 </span>
@@ -167,7 +167,7 @@ export const GithubUserProfileFinder: React.FC = () => {
                 </div>
 
                 {/* Details Column */}
-                <div className="flex-grow space-y-4 w-full">
+                <div className="grow space-y-4 w-full">
                   {user.bio && (
                     <p className="text-sm italic text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/60 p-4 rounded-2xl">
                       "{user.bio}"

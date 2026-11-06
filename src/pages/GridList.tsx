@@ -41,13 +41,13 @@ export const GridList: React.FC = () => {
     <div className="space-y-16 pb-20">
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-16 pb-12 lg:pt-24 lg:pb-16 text-center">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/10 dark:bg-indigo-500/20 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-indigo-500/10 dark:bg-indigo-500/20 blur-[120px] rounded-full pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400 text-xs font-semibold mb-6">
             <i className="fa-solid fa-bolt"></i> Live API Data Stream
           </span>
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight">
-            Top 15 Directory powered by <span className="bg-gradient-to-r from-indigo-600 to-violet-500 bg-clip-text text-transparent">JSONPlaceholder</span>
+            Top 15 Directory powered by <span className="bg-linear-to-r from-indigo-600 to-violet-500 bg-clip-text text-transparent">JSONPlaceholder</span>
           </h1>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Fetched live on load. Toggle instantly between a structured list and a modern responsive grid view.
